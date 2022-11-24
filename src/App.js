@@ -1,7 +1,6 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 
-function App() {
-  return <div className="App">React App</div>;
-}
+const App = () => <div>React App</div>;
 
 export default App;
