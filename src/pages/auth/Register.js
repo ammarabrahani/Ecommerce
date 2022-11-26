@@ -10,7 +10,7 @@ const Register = () => {
   const [registerationForm] = Form.useForm();
   const onFinish = async () => {
     const actionCodeSettings = {
-      url: "http://localhost:3000",
+      url: process.env.REACT_APP_REGISTER_REDIRECT_URL,
       handleCodeInApp: true,
     };
 
@@ -18,7 +18,7 @@ const Register = () => {
 
     registerationForm.validateFields().then(async (values) => {
       sendSignInLinkToEmail(auth, values.email, actionCodeSettings)
-        .then(() => {
+        .then((res) => {
           window.localStorage.setItem("emailForSignIn", values.email);
           toast.success(`Email is sent to ${values.email}`);
         })
