@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   AppstoreOutlined,
   SettingOutlined,
-  UserOutlined,
   UserAddOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Col, Form, Input, Row } from "antd";
 import { auth } from "../../firebase";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { getAuth, sendSignInLinkToEmail } from "firebase/auth";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -14,10 +14,10 @@ const Register = () => {
       handleCodeInApp: true,
     };
 
-    const auth = getAuth();
+    const authentication = getAuth();
 
     registerationForm.validateFields().then(async (values) => {
-      sendSignInLinkToEmail(auth, values.email, actionCodeSettings)
+      sendSignInLinkToEmail(authentication, values.email, actionCodeSettings)
         .then((res) => {
           window.localStorage.setItem("emailForSignIn", values.email);
           toast.success(`Email is sent to ${values.email}`);
@@ -32,7 +32,6 @@ const Register = () => {
         });
     });
   };
-  const notify = () => toast("Wow so easy!");
 
   const registerForm = () => (
     <Form
@@ -45,10 +44,6 @@ const Register = () => {
       <Form.Item label="Email" name="email">
         <Input />
       </Form.Item>
-      <div>
-        <button onClick={notify}>Notify!</button>
-        <ToastContainer />
-      </div>
       <Button type="primary" htmlType="submit">
         Register
       </Button>
