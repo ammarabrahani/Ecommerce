@@ -21,6 +21,9 @@ const Register = () => {
         .then((res) => {
           window.localStorage.setItem("emailForSignIn", values.email);
           toast.success(`Email is sent to ${values.email}`);
+          registerationForm.setFieldsValue({
+            email: "",
+          });
         })
         .catch((error) => {
           // const errorCode = error.code;
